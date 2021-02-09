@@ -7,6 +7,9 @@ require_relative 'node'
 class Node
   include Comparable
 
+  attr_accessor :child_left
+  attr_accessor :child_right
+
   def initialize(value = nil)
     @value = value
     @child_left = nil
