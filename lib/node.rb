@@ -5,7 +5,9 @@ require_relative 'node'
 
 # node within a binary search tree
 class Node
-  def initialize
-    # asdf
+  def initialize(value = nil)
+    @value = value
+    @child_left = nil
+    @child_right = nil
   end
 end
