@@ -2,5 +2,7 @@
 #require 'pry'; binding.pry #rubocop:disable all
 
 require_relative 'node'
+require_relative 'tree'
 
-asdf = Node.new
+node = Node.new
+tree = Tree.new([1, 2, 3])
