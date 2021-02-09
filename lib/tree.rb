@@ -9,14 +9,23 @@ class Tree
     @root = build_tree(arr.sort.uniq)
   end
 
+  # def build_tree(arr)
+  #   return nil if arr.empty?
+
+  #   # p arr
+  #   mid = (arr.length - 1) / 2
+  #   node = Node.new(arr[mid])
+  #   if arr[0] < arr[-1]
+  #     node.left_child = build_tree(arr[0..mid-1])
+  #     node.right_child = build_tree(arr[mid+1..-1])
+  #   end
+  #   node
+  # end
   def build_tree(arr)
+    return nil if arr.empty?
+
     p arr
-    i = (arr.length - 1) / 2
-    node = Node.new(arr[i])
-    if arr[0] < arr[-1]
-      node.child_left = build_tree(arr[0..i-1])
-      node.child_right = build_tree(arr[i+1..-1])
-    end
-    node
+    mid = (arr.length - 1) / 2
+    Node.new(arr[mid], build_tree(arr[0, mid]), build_tree(arr[(mid + 1)..-1]))
   end
 end
