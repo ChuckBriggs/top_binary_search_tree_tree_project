@@ -2,9 +2,7 @@
 
 https://www.theodinproject.com/courses/ruby-programming/lessons/binary-search-trees
 
-################
-# Introduction #
-################
+# Introduction
 
 You have learned about binary search trees – where you take a group of data
 items and turn them into a tree full of nodes where each left node is “lower”
@@ -17,9 +15,7 @@ and watch this video to understand the basic algorithm used to build a balanced
 BST. Although these two resources do not use Ruby, you should understand it
 enough to develop your own pseudocode.
 
-##############
-# Assignment #
-##############
+# Assignment
 
 You’ll build a balanced BST in this assignment. Do not use duplicate values
 because they make it more complicated and result in trees that are much harder
