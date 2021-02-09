@@ -3,4 +3,4 @@
 
 require_relative 'node'
 
-puts 'asdf'
+asdf = Node.new
