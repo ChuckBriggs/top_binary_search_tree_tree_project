@@ -12,4 +12,8 @@ class Node
     @child_left = nil
     @child_right = nil
   end
+
+  def <=>(other_node)
+    value <=> other_node.value
+  end
 end
