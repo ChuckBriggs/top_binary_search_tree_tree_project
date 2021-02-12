@@ -41,9 +41,9 @@ class Tree
     end
 
     if root.data == value
-      if root.left_child == nil
+      if root.left_child.nil?
         root = root.right_child
-      elsif root.right_child == nil
+      elsif root.right_child.nil?
         root = root.left_child
       else
         root.data = min_value(root.right_child)
