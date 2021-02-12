@@ -20,8 +20,19 @@ class Tree
     root
   end
 
-  def insert
-    # asdf
+  def insert(value)
+    @root = insert_node(@root, value)
+  end
+
+  def insert_node(root, value)
+    return Node.new(value) if root == nil
+
+    if root.data > value
+      root.left_child = insert_node(root.left_child, value)
+    elsif root.data < value
+      root.right_child = insert_node(root.right_child, value)
+    end
+    root
   end
 
   def delete
