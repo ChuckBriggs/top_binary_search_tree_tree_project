@@ -68,24 +68,42 @@ class Tree
 
     root = find(value, root.left_child) if value < root.data
     root = find(value, root.right_child) if value > root.data
-
     root
   end
 
   def level_order
-    # asdf
+    i = 0
+    queue = [@root]
+    arr = []
+    while queue[i]
+      arr.push(queue[i].data)
+      queue.push(queue[i].left_child) if queue[i].left_child
+      queue.push(queue[i].right_child) if queue[i].right_child
+      i += 1
+    end
+    arr
   end
 
   def inorder
-    # asdf
+    # visit left sub-tree
+    # visit root
+    # visit right sub-tree
   end
 
-  def preorder
-    # asdf
+  def preorder(root = @root, arr = [])
+    # visit root
+    # visit left sub-tree
+    # visit right sub-tree
+    arr.push root.data
+    preorder(root.left_child, arr) if root.left_child
+    preorder(root.right_child, arr) if root.right_child
+    arr
   end
 
   def postorder
-    # asdf
+    # visit left sub-tree
+    # visit right sub-tree
+    # visit root
   end
 
   def height
