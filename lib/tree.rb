@@ -63,8 +63,13 @@ class Tree
     min_val
   end
 
-  def find
-    # asdf
+  def find(value, root = @root)
+    return root if root.nil? || root.data == value
+
+    root = find(value, root.left_child) if value < root.data
+    root = find(value, root.right_child) if value > root.data
+
+    root
   end
 
   def level_order
