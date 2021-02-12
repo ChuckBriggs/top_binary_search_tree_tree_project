@@ -50,7 +50,6 @@ puts "In-order:\t#{tree.inorder}"
 # tree.pretty_print
 # p tree.balanced?
 
-
 # # puts "height:\t#{tree.height}"
 
 # # p tree.depth(tree.find(324))
