@@ -116,7 +116,6 @@ class Tree
 
   def height(root = @root)
     return 0 if root.nil?
-    
     left = root.left_child ? height(root.left_child) : 0
     right = root.right_child ? height(root.right_child) : 0
     left > right ? left + 1 : right + 1
@@ -130,12 +129,10 @@ class Tree
     return true if root.nil?
     return true if root.left_child.nil? && height(root.right_child).abs <= 1
     return true if root.right_child.nil? && height(root.left_child).abs <= 1
-    return true if (height(root.left_child) - height(root.right_child)).abs <= 1 && balanced?(root.left_child) && balanced?(root.right_child)
+    return true if balanced?(root.left_child) &&
+                   balanced?(root.right_child) &&
+                   (height(root.left_child) - height(root.right_child)).abs <= 1
     return false
-    # asdf
-    # return true if absolute value of ( height(left) - height(right) ) <= 1
-    # else return false
-    # (height(root.left_child) - height(right_child)).abs <= 1
   end
 
   def rebalance
