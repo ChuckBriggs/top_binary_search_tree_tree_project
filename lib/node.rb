@@ -4,7 +4,7 @@
 # node within a binary search tree
 class Node
   include Comparable
-  attr_reader :data
+  attr_accessor :data, :left_child, :right_child
 
   def initialize(data)
     @data = data

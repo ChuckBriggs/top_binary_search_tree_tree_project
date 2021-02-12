@@ -6,11 +6,18 @@ require_relative 'node'
 # node within a binary search tree
 class Tree
   def initialize(arr)
-    @root = build_tree(arr.sort.uniq)
+    arr = arr.sort.uniq
+    @root = build_tree(arr)
   end
 
-  def build_tree
-    # asdf
+  def build_tree(arr, first = 0, last = arr.length - 1)
+    return nil if first > last
+
+    mid = (first + last) / 2
+    root = Node.new(arr[mid])
+    root.left_child = build_tree(arr, first, mid - 1)
+    root.right_child = build_tree(arr, mid + 1, last)
+    root
   end
 
   def insert
