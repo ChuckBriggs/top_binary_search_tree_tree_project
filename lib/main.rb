@@ -12,8 +12,9 @@ tree = Tree.new([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
 tree.pretty_print
 
 # p tree.find(67)
-p tree.inorder
-
+puts "inorder:\t#{tree.inorder}"
+puts "preorder:\t#{tree.preorder}"
+puts "postorder:\t#{tree.postorder}"
 # i = 0
 # while i < arr.length
 #   puts arr[i].data

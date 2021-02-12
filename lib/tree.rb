@@ -86,28 +86,32 @@ class Tree
 
   def inorder(root = @root, arr = [])
     # visit left sub-tree
-    # visit root
-    # visit right sub-tree
     inorder(root.left_child, arr) if root.left_child
+    # visit root
     arr.push root.data
+    # visit right sub-tree
     inorder(root.right_child, arr) if root.right_child
     arr
   end
 
   def preorder(root = @root, arr = [])
     # visit root
-    # visit left sub-tree
-    # visit right sub-tree
     arr.push root.data
+    # visit left sub-tree
     preorder(root.left_child, arr) if root.left_child
+    # visit right sub-tree
     preorder(root.right_child, arr) if root.right_child
     arr
   end
 
-  def postorder
+  def postorder(root = @root, arr = [])
     # visit left sub-tree
+    postorder(root.left_child, arr) if root.left_child
     # visit right sub-tree
+    postorder(root.right_child, arr) if root.right_child
     # visit root
+    arr.push root.data
+    arr
   end
 
   def height
