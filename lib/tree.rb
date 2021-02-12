@@ -6,13 +6,14 @@ require_relative 'node'
 # node within a binary search tree
 class Tree
   def initialize(arr)
-    arr = arr.sort.uniq
+    arr = arr.uniq
     @root = build_tree(arr)
   end
 
   def build_tree(arr, first = 0, last = arr.length - 1)
     return nil if first > last
 
+    arr = arr.sort.uniq
     mid = (first + last) / 2
     root = Node.new(arr[mid])
     root.left_child = build_tree(arr, first, mid - 1)
@@ -127,16 +128,16 @@ class Tree
 
   def balanced?(root = @root)
     return true if root.nil?
-    return true if root.left_child.nil? && height(root.right_child).abs <= 1
-    return true if root.right_child.nil? && height(root.left_child).abs <= 1
+
     return true if balanced?(root.left_child) &&
                    balanced?(root.right_child) &&
                    (height(root.left_child) - height(root.right_child)).abs <= 1
-    return false
+
+    false
   end
 
   def rebalance
-    # asdf
+    @root = build_tree(level_order)
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
