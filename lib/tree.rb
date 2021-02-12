@@ -84,10 +84,14 @@ class Tree
     arr
   end
 
-  def inorder
+  def inorder(root = @root, arr = [])
     # visit left sub-tree
     # visit root
     # visit right sub-tree
+    inorder(root.left_child, arr) if root.left_child
+    arr.push root.data
+    inorder(root.right_child, arr) if root.right_child
+    arr
   end
 
   def preorder(root = @root, arr = [])
