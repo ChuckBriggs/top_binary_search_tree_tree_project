@@ -114,8 +114,10 @@ class Tree
     arr
   end
 
-  def height
-    # asdf
+  def height(root = @root)
+    left = root.left_child ? height(root.left_child) : 0
+    right = root.right_child ? height(root.right_child) : 0
+    left > right ? left + 1 : right + 1
   end
 
   def depth
