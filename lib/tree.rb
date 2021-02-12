@@ -20,19 +20,47 @@ class Tree
     root
   end
 
-  def insert(root = @root, value)
+  def insert(value, root = @root)
     return Node.new(value) if root == nil
 
     if root.data > value
-      root.left_child = insert(root.left_child, value)
+      root.left_child = insert(value, root.left_child)
     elsif root.data < value
-      root.right_child = insert(root.right_child, value)
+      root.right_child = insert(value, root.right_child)
     end
     root
   end
 
-  def delete
-    # asdf
+  def delete(root = @root, value)
+    return root if root.nil?
+
+    if root.data > value
+      root.left_child = delete(root.left_child, value)
+    elsif root.data < value
+      root.right_child = delete(root.right_child, value)
+    end
+
+    if root.data == value
+      if root.left_child == nil
+        root = root.right_child
+      elsif root.right_child == nil
+        root = root.left_child
+      else
+        root.data = min_value(root.right_child)
+        root.right_child = delete(root.right_child, root.data)
+      end
+    end
+
+    root
+  end
+
+  def min_value(root)
+    min_val = root.data
+    while root.left_child
+      min_val = root.left_child.data
+      root = root.left_child
+    end
+    min_val
   end
 
   def find
