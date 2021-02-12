@@ -23,4 +23,50 @@ class Tree
   def insert
     # asdf
   end
+
+  def delete
+    # asdf
+  end
+
+  def find
+    # asdf
+  end
+
+  def level_order
+    # asdf
+  end
+
+  def inorder
+    # asdf
+  end
+
+  def preorder
+    # asdf
+  end
+
+  def postorder
+    # asdf
+  end
+
+  def height
+    # asdf
+  end
+
+  def depth
+    # asdf
+  end
+
+  def balanced?
+    # asdf
+  end
+
+  def rebalance
+    # asdf
+  end
+
+  def pretty_print(node = @root, prefix = '', is_left = true)
+    pretty_print(node.right_child, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_child
+    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
+    pretty_print(node.left_child, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left_child
+  end 
 end
